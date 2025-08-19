@@ -1,0 +1,119 @@
+<script lang="ts">
+    import { getContext, onMount } from "svelte";
+    import { THEME_CTX, type ThemeCtrl } from "../../contexts/theme.svelte";
+
+    const {
+        lightScreenshot,
+        darkScreenshot,
+        tilt = 4,
+        hoverTilt = 2.5,
+        hoverOffset = -4
+    }: { lightScreenshot: string; darkScreenshot: string, tilt?: number, hoverTilt? : number, hoverOffset? : number} = $props();
+    let mounted = $state(false); // So we can force screenshot to reload after mount because hydration and SSR 🤮
+    const theme : ThemeCtrl = getContext(THEME_CTX);
+    const isDark = $derived(theme.theme == 'dark');
+    const cssVars = $derived(`--tilt: ${tilt}deg; --negative-tilt: ${tilt * -1}deg; --hover-tilt: ${hoverTilt}deg; --hover-offset: ${hoverOffset}px;`)
+    let screenshot = $derived(mounted && isDark? darkScreenshot: lightScreenshot);
+    onMount(() => {
+        mounted = true;
+    })
+    
+
+</script>
+
+<figure class="screenshot-tilt m-0" style={cssVars}>
+    <img src={screenshot} alt="Product screenshot" class="img-fluid" />
+</figure>
+
+<style>
+    .screenshot-tilt {
+        position: relative;
+        width: clamp(260px, 42vw, 560px);
+        border-radius: 18px;
+        background: #fff;
+        border: 1.5px solid rgba(111, 66, 193, 0.25);
+        box-shadow:
+            0 22px 55px rgba(17, 12, 46, 0.12),
+            0 8px 20px rgba(17, 12, 46, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transform: rotate(var(--tilt)) translateZ(0);
+        overflow: hidden;
+    }
+
+    .screenshot-tilt::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 18px;
+        background:
+            radial-gradient(circle at 34px 22px, #ff5f56 6px, transparent 7px),
+            radial-gradient(circle at 58px 22px, #ffbd2e 6px, transparent 7px),
+            radial-gradient(circle at 82px 22px, #27c93f 6px, transparent 7px),
+            linear-gradient(#e9eefb, #e9eefb) top / 100% 50px no-repeat;
+        pointer-events: none;
+        mask:
+            linear-gradient(#000 0 0) top / 100% 50px no-repeat,
+            linear-gradient(#0000, #000) bottom;
+    }
+
+    .screenshot-tilt img {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 50px 0 0;
+        border-radius: 18px;
+        transition: opacity 0.25s ease;
+    }
+
+    .screenshot-tilt::after {
+        content: "";
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        bottom: -24px;
+        height: 40px;
+        background: radial-gradient(
+            50% 100% at 50% 0,
+            rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0)
+        );
+        filter: blur(8px);
+        transform: rotate(var(--negative-tilt));
+        pointer-events: none;
+    }
+
+    @media (hover: hover) {
+        .screenshot-tilt {
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .screenshot-tilt:hover {
+            transform: rotate(var(--hover-tilt)) translateY(var(--hover-offset));
+            box-shadow:
+                0 28px 70px rgba(17, 12, 46, 0.16),
+                0 10px 26px rgba(17, 12, 46, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+    }
+
+
+
+    :global([data-bs-theme="dark"]) .screenshot-tilt {
+        background: #0f1320;
+        border-color: rgba(147, 120, 255, 0.25);
+        box-shadow:
+            0 22px 55px rgba(0, 0, 0, 0.5),
+            0 8px 20px rgba(0, 0, 0, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    :global([data-bs-theme="dark"]) .screenshot-tilt::before {
+        background:
+            radial-gradient(circle at 34px 22px, #ff5f56 6px, transparent 7px),
+            radial-gradient(circle at 58px 22px, #ffbd2e 6px, transparent 7px),
+            radial-gradient(circle at 82px 22px, #27c93f 6px, transparent 7px),
+            linear-gradient(#1a2030, #1a2030) top / 100% 50px no-repeat;
+    }
+</style>

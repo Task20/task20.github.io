@@ -1,0 +1,24 @@
+      :root {
+            --hero-grad-start: #7b2ff7;
+            --hero-grad-end: #f107a3;
+            --brand-purple: #6f42c1;
+            --soft-bg: #f8f9fc;
+      }
+      .theme-transition * {
+            transition:
+                  background-color .25s ease,
+                  color .25s ease,
+                  border-color .25s ease,
+                  box-shadow .25s ease,
+                  fill .25s ease,
+                  stroke .25s ease;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+            .theme-transition * {
+                  transition: none !important;
+            }
+      }
+
+
+      

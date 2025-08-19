@@ -1,0 +1,53 @@
+{
+    "app_name": "Task 20",
+    "navbar": {
+        "home": "Home",
+        "installing": "Installing",
+        "legal": "Legal",
+        "faq": "FAQ",
+        "download": "Download"
+    },
+    "hero1": {
+        "title": "Product title here. Wow so cool",
+        "description": "Stuff here **I should be bold** *I should be italic* yeah.",
+        "download": "Download",
+        "learn-more": "Learn More",
+        "currently": "Currently",
+        "version": "v0.3.4a-0.3.0c",
+        "all-releases": "All releases"
+    },
+    "features": {
+        "feature1": {
+            "title": "Feature 1",
+            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+        },
+        "feature2": {
+            "title": "Feature 2",
+            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+        },
+        "feature3": {
+            "title": "Feature 3",
+            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+        },
+        "feature4": {
+            "title": "Feature 4",
+            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+        }
+    },
+    "hero2": {
+        "built-for": "Built for",
+        "bf1": "people",
+        "bf2": "some people",
+        "bf3": "a lot of people",
+        "bf4": "most people",
+        "bf5": "EVERYONE",
+        "description": "Stuff here **I should be bold** *I should be italic* yeah."
+    },
+    "hero3": {
+        "title": "Stuff here **I should be bold**",
+        "description":"Stuff here **I should be bold** *I should be italic* yeah."
+    },
+    "footer": {
+        "copyright": "© 2025 Task 20"
+    }
+}
