@@ -1,5 +1,5 @@
 {
-    "app_name": "Task 20",
+    "app_name": "Product Name",
     "navbar": {
         "home": "Home",
         "installing": "Installing",
@@ -8,8 +8,8 @@
         "download": "Download"
     },
     "hero1": {
-        "title": "Product title here. Wow so cool",
-        "description": "Stuff here **I should be bold** *I should be italic* yeah.",
+        "title": "Do <action> with <product name>",
+        "description": "Descirption here **with some bold text** *and italicized text*",
         "download": "Download",
         "learn-more": "Learn More",
         "currently": "Currently",
@@ -19,33 +19,33 @@
     "features": {
         "feature1": {
             "title": "Feature 1",
-            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+            "description": "Description of feature 1."
         },
         "feature2": {
             "title": "Feature 2",
-            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+            "description": "Description of feature 2."
         },
         "feature3": {
             "title": "Feature 3",
-            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+            "description": "Description of feature 3."
         },
         "feature4": {
             "title": "Feature 4",
-            "description": "Stuff here **I should be bold** *I should be italic* yeah."
+            "description": "Description of feature 4."
         }
     },
     "hero2": {
         "built-for": "Built for",
-        "bf1": "people",
-        "bf2": "some people",
-        "bf3": "a lot of people",
-        "bf4": "most people",
-        "bf5": "EVERYONE",
-        "description": "Stuff here **I should be bold** *I should be italic* yeah."
+        "bf1": "group 1",
+        "bf2": "group 2",
+        "bf3": "group 3",
+        "bf4": "group 4",
+        "bf5": "group 5",
+        "description": "Explanation of versatility"
     },
     "hero3": {
-        "title": "Stuff here **I should be bold**",
-        "description":"Stuff here **I should be bold** *I should be italic* yeah."
+        "title": "Specific highlight.",
+        "description":"Information about specific highlight"
     },
     "footer": {
         "copyright": "© 2025 Task 20"
